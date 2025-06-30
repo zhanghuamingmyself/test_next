@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: zhm-next
+  namespace: szhems
+  labels:
+    app: zhm-next
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: zhm-next
+  template:
+    metadata:
+      labels:
+        app: zhm-next
+    spec:
+      imagePullSecrets:
+        - name: regcred
+      containers:
+        - name: zhm-next
+          image: ccr.ccs.tencentyun.com/tsf_100002806844/zhm-next:v1.0.1
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 80
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: zhm-next
+  namespace: szhems
+  labels:
+    name: zhm-next
+spec:
+  ports:
+    - name: api
+      port: 3000
+      targetPort: 80
+  selector:
+    app: zhm-next

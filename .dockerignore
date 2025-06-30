@@ -1,0 +1,8 @@
+node_modules/
+dist/
+.vscode/
+.idea
+.husky
+package-lock.json
+.next
+README.md
