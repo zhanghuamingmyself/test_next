@@ -25,5 +25,6 @@ docker push ${image}
 #  --namespace=szhems
 
 kubectl apply -f deployment.yaml
+kubectl apply -f ingress.yaml
 
 #kubectl delete -f deployment.yaml

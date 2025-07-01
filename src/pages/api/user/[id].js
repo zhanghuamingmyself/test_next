@@ -13,8 +13,9 @@ export default function handler(req, res) {
             res.status(200).json({id, name: "John Doe Updated"});
             break;
         case 'POST':
+            const body = req.body
             // 更新特定用户的信息
-            res.status(200).json({id, name: req.body});
+            res.status(200).json({id, name: body});
             break;
         case 'DELETE':
             // 删除特定用户

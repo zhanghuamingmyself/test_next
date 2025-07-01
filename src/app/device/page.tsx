@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { readFileSync } from 'fs'
 import path from "path"
+
 export default function Home() {
     let user = readFileSync(path.join(process.cwd(), 'data', `user.json`), 'utf-8')
     // const click = async () => {
